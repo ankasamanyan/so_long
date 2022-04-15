@@ -6,7 +6,7 @@
 /*   By: ankasamanyan <ankasamanyan@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 13:45:13 by ankasamanya       #+#    #+#             */
-/*   Updated: 2022/04/15 14:14:25 by ankasamanya      ###   ########.fr       */
+/*   Updated: 2022/04/15 14:53:16 by ankasamanya      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,6 @@ int main(int argc, char const *argv[])
 		return 0;
 	}
 	fd = open(argv[1], O_RDONLY);
-	
-	// while ()
-	// {	
-	// 	// if (map_row == NULL)
-	// 	// 	break;
-	// 	map[i] = get_next_line(fd);
-	// 	ft_printf("%s", map[i++]);
-	// }
+
 	return 0;
 }
