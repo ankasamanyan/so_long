@@ -6,7 +6,7 @@
 #    By: ankasamanyan <ankasamanyan@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 13:54:28 by ankasamanya       #+#    #+#              #
-#    Updated: 2022/04/15 13:51:43 by ankasamanya      ###   ########.fr        #
+#    Updated: 2022/04/15 14:16:50 by ankasamanya      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ $(NAME): $(OBJ)
 clean:
 	$(MAKE) fclean -C Libft
 	# $(MAKE) clean -C mlx
-	$(RM) $(OBJ) $(BONUS_OBJ)
+	$(RM) $(OBJ) $(BONUS_OBJ) libmlx.a
 
 fclean: clean
 	$(RM) $(NAME)
