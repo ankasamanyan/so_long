@@ -6,7 +6,7 @@
 /*   By: ankasamanyan <ankasamanyan@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 21:32:58 by ankasamanya       #+#    #+#             */
-/*   Updated: 2022/04/16 21:33:01 by ankasamanya      ###   ########.fr       */
+/*   Updated: 2022/04/16 22:18:43 by ankasamanya      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,28 @@ int main(int argc, char const *argv[])
 	map = ft_calloc(rows, sizeof(char *));
 	fd = open(argv[1], O_RDONLY);
 	map_row = get_next_line(fd);
+	if (map_row[columns] == '\n')
+		map_row[columns] = '\0';
 	i = 0;
 	while (map_row)
 	{
-		map[i] = map_row;
+		if (map_row[columns] == '\n')
+		map_row[columns] = '\0';
+		map[i++] = map_row;
 		map_row = get_next_line(fd);
-		ft_printf("%s",map[i++]);
+		// ft_printf("%s\n",map[i++]);
 	}
 	
-	ft_printf("\n");
+	// ft_printf("\n");
 	//check if the map is rectangular and surrounded by walls
 	i = 0;
 	while (i < rows)
 	{
-		// ft_printf("%i\n",(ft_strlen(map[i]) - 1));
+		// ft_printf("%i\n",ft_strlen(map[i]));
 		
 		// check if the map is rectangular
-		if ((ft_strlen(map[i]) - 1) != columns)
-			return (ft_printf("Error\nInvalid map!"));
-		//check if the map is surrounded by walls
+		
+		// check if the map is surrounded by walls
 		if (map[i][0] != '1' || map[i][columns - 1] != '1') 
 			return (ft_printf("Error\nMissing wall in map!"));
 		while (j < columns)
@@ -72,6 +75,8 @@ int main(int argc, char const *argv[])
 			if (map[0][j] != '1' || map[rows - 1][j++] != '1')
 				return (ft_printf("Error\nMissing wall in map!"));
 		}
+		if (ft_strlen(map[i]) != columns)
+			return (ft_printf("Error\nInvalid map!"));
 		i++;
 	}
 	return 0;
