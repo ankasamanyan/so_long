@@ -6,7 +6,7 @@
 /*   By: ankasamanyan <ankasamanyan@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 21:32:58 by ankasamanya       #+#    #+#             */
-/*   Updated: 2022/04/16 22:18:43 by ankasamanya      ###   ########.fr       */
+/*   Updated: 2022/04/17 00:13:17 by ankasamanya      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,26 @@ int main(int argc, char const *argv[])
 	while (i < rows)
 	{
 		// ft_printf("%i\n",ft_strlen(map[i]));
-		
+
 		// check if the map is rectangular
-		
+		if (ft_strlen(map[i]) != columns)
+			return (ft_printf("Error\nInvalid map!"));
 		// check if the map is surrounded by walls
 		if (map[i][0] != '1' || map[i][columns - 1] != '1') 
 			return (ft_printf("Error\nMissing wall in map!"));
-		while (j < columns)
-		{
-			if (map[0][j] != '1' || map[rows - 1][j++] != '1')
-				return (ft_printf("Error\nMissing wall in map!"));
-		}
-		if (ft_strlen(map[i]) != columns)
-			return (ft_printf("Error\nInvalid map!"));
 		i++;
 	}
+	i = 0;
+	while (i < rows)
+	{
+		while (j < columns)
+		{	
+			if (map[0][j] != '1' || map[rows - 1][j] != '1')
+				return (ft_printf("Error\nMissing wall in map!"));
+			j++;
+		}
+		i++;
+	}
+	 
 	return 0;
 }
