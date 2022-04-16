@@ -6,42 +6,13 @@
 #    By: ankasamanyan <ankasamanyan@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 13:54:28 by ankasamanya       #+#    #+#              #
-#    Updated: 2022/04/15 14:16:50 by ankasamanya      ###   ########.fr        #
+#    Updated: 2022/04/16 10:32:07 by ankasamanya      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# SRCS = so_long.c
-
-# NAME = so_long
-
-# MLX = ./mlx/libmlx.a -framework OpenGL -framework AppKit
-
-# OBJS =	$(SRCS:.c=.o)
-
-# LIB =	./Libft/libft.a
-
-# all: $(LIB) $(NAME)
-
-# $(NAME): $(OBJS)
-# 	$(CC) $(CFLAGS) $(OBJS) $(MLX) -o $(NAME) $(LIB)
-
-# $(LIB):
-# 	$(MAKE) bonus -C Libft
-
-# clean:
-# 	$(MAKE) fclean -C Libft
-# 	$(RM) $(OBJS)
-
-# fclean: clean
-# 	$(RM) $(NAME) 
-
-# re: fclean all 
-
-
-
 NAME = so_long
 
-SRC = so_long.c
+SRC = so_long.c map_check.c
 
 OBJ =	$(SRC:.c=.o)
 
