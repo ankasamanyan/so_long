@@ -5,12 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ankasamanyan <ankasamanyan@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 13:45:13 by ankasamanya       #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/04/16 21:29:10 by ankasamanya      ###   ########.fr       */
-=======
-/*   Updated: 2022/04/15 14:53:16 by ankasamanya      ###   ########.fr       */
->>>>>>> 8dd973e26505661f043262d6712516fe5c77db29
+/*   Created: 2022/04/16 21:32:58 by ankasamanya       #+#    #+#             */
+/*   Updated: 2022/04/16 21:33:01 by ankasamanya      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +32,7 @@ int main(int argc, char const *argv[])
 		return 0;
 	}
 	fd = open(argv[1], O_RDONLY);
-<<<<<<< HEAD
+
 	//get the column count
 	columns = ft_strlen(get_next_line(fd)) - 1;
 	// ft_printf("%i\n", columns);
@@ -78,8 +74,5 @@ int main(int argc, char const *argv[])
 		}
 		i++;
 	}
-=======
->>>>>>> 8dd973e26505661f043262d6712516fe5c77db29
-
 	return 0;
 }
