@@ -6,7 +6,7 @@
 /*   By: ankasamanyan <ankasamanyan@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 21:32:58 by ankasamanya       #+#    #+#             */
-/*   Updated: 2022/04/17 00:13:17 by ankasamanya      ###   ########.fr       */
+/*   Updated: 2022/04/17 10:30:41 by ankasamanya      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
 
 	//get the column count
 	columns = ft_strlen(get_next_line(fd)) - 1;
-	// ft_printf("%i\n", columns);
+	// ft_printf("%i\n\n", columns);
 	
 	//get the row count
 	while (get_next_line(fd))
@@ -46,31 +46,28 @@ int main(int argc, char const *argv[])
 	map = ft_calloc(rows, sizeof(char *));
 	fd = open(argv[1], O_RDONLY);
 	map_row = get_next_line(fd);
-	if (map_row[columns] == '\n')
-		map_row[columns] = '\0';
+	if (map_row[ft_strlen(map_row) -1] == '\n')
+		map_row[ft_strlen(map_row) -1] = '\0';
 	i = 0;
 	while (map_row)
 	{
-		if (map_row[columns] == '\n')
-		map_row[columns] = '\0';
-		map[i++] = map_row;
+		if (map_row[ft_strlen(map_row) -1] == '\n')
+			map_row[ft_strlen(map_row) -1] = '\0';
+		map[i] = map_row;
 		map_row = get_next_line(fd);
-		// ft_printf("%s\n",map[i++]);
+		// ft_printf("%s\n",map[i]);
+		i++;
 	}
-	
-	// ft_printf("\n");
 	//check if the map is rectangular and surrounded by walls
 	i = 0;
 	while (i < rows)
 	{
-		// ft_printf("%i\n",ft_strlen(map[i]));
-
 		// check if the map is rectangular
 		if (ft_strlen(map[i]) != columns)
-			return (ft_printf("Error\nInvalid map!"));
+			return (ft_printf("Error\nInvalid map! The map has to be rectangular!"));
 		// check if the map is surrounded by walls
 		if (map[i][0] != '1' || map[i][columns - 1] != '1') 
-			return (ft_printf("Error\nMissing wall in map!"));
+			return (ft_printf("Error\nMissing wall in the map!"));
 		i++;
 	}
 	i = 0;
@@ -84,6 +81,5 @@ int main(int argc, char const *argv[])
 		}
 		i++;
 	}
-	 
 	return 0;
 }
