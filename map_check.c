@@ -69,9 +69,9 @@ void	check_walls(map *map_thingy)
 	int	j;
 
 	i = 0;
-	j = 0;
 	while (i < map_thingy->row)
 	{
+		j = 0;
 		while (j < map_thingy->column)
 		{
 			if ((map_thingy->map_arr[0][j] != '1')
@@ -95,14 +95,14 @@ void	check_chars(map *mapi)
 	int		j;
 
 	i = 0;
-	i = 0;
 	while (i < mapi->row)
 	{
+		j = 0;
 		while (j < mapi->column)
 		{
-			if ((mapi->map_arr[i][j] != '1') && (mapi->map_arr[i][j] != '0')
-				&& (mapi->map_arr[i][j] != 'P') && (mapi->map_arr[i][j] != 'C')
-				&& (mapi->map_arr[i][j] != 'E'))
+			if (mapi->map_arr[i][j] != '1'&& mapi->map_arr[i][j] != '0'
+				&& mapi->map_arr[i][j] != 'P' && mapi->map_arr[i][j] != 'C'
+				&& mapi->map_arr[i][j] != 'E')
 			{
 				ft_printf("Error\nWrong character in the map!");
 				i = -1;
