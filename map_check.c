@@ -118,6 +118,7 @@ void	check_chars(map *mapi)
 
 void	run_checks(map *map_thingy)
 {
+	
 	check_chars(map_thingy);
 	check_shape(map_thingy);
 	check_walls(map_thingy);
