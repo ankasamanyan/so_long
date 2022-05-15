@@ -15,10 +15,23 @@
 int	main(int argc, char *argv[])
 {
 	t_vars	vars;
+	void	*mlx;
+	void	*img;
+	void	*mlx_win;
+	char	*img_path = "./doggo.xpm";
+	int		width = 150;
+	int		height = 150;
+	int		win_width = 1920;
+	int		win_height = 1080;
+
+	mlx = mlx_init();
 
 	if (argc < 2 || argc > 2)
 		return (ft_printf("Wrong number of arguments!"));
 	get_the_map(argv[1], &vars.map_thingy);
 	run_checks(&vars.map_thingy);
-	return (0);
+	mlx_win = mlx_new_window(mlx, win_width, win_height, "Hello world!");
+	img = mlx_xpm_file_to_image(mlx, img_path, &width, &height);
+	mlx_put_image_to_window(mlx, mlx_win, img, 0, 0);
+	mlx_loop(mlx);
 }

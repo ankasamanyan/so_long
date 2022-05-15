@@ -50,13 +50,13 @@ void	check_shape(map	*map_thingy)
 	{
 		if (ft_strlen(map_thingy->map_arr[i]) != map_thingy->column)
 		{
-			ft_printf("Error\nInvalid map! The map has to be rectangular!");
+			write(2, "Error\nInvalid map! The map has to be rectangular!", 50);
 			break ;
 		}
 		if (map_thingy->map_arr[i][0] != '1'
 			|| map_thingy->map_arr[i][map_thingy->column - 1] != '1')
 		{
-			ft_printf("Error\nMissing wall in the map!");
+			write(2, "Error\nMissing wall in the map!", 31);
 			break ;
 		}
 		i++;
@@ -69,15 +69,15 @@ void	check_walls(map *map_thingy)
 	int	j;
 
 	i = 0;
-	j = 0;
 	while (i < map_thingy->row)
 	{
+		j = 0;
 		while (j < map_thingy->column)
 		{
 			if ((map_thingy->map_arr[0][j] != '1')
 				|| (map_thingy->map_arr[map_thingy->row][j] != '1'))
 			{
-				ft_printf("Error\nMissing wall in map!");
+				write(2, "Error\nMissing wall in map!", 27);
 				i = -1;
 				break ;
 			}
@@ -95,16 +95,16 @@ void	check_chars(map *mapi)
 	int		j;
 
 	i = 0;
-	i = 0;
 	while (i < mapi->row)
 	{
+		j = 0;
 		while (j < mapi->column)
 		{
-			if ((mapi->map_arr[i][j] != '1') && (mapi->map_arr[i][j] != '0')
-				&& (mapi->map_arr[i][j] != 'P') && (mapi->map_arr[i][j] != 'C')
-				&& (mapi->map_arr[i][j] != 'E'))
+			if (mapi->map_arr[i][j] != '1' && mapi->map_arr[i][j] != '0' \
+				&& mapi->map_arr[i][j] != 'P' && mapi->map_arr[i][j] != 'C' \
+				&& mapi->map_arr[i][j] != 'E')
 			{
-				ft_printf("Error\nWrong character in the map!");
+				write(2, "Error\nWrong character in the map!", 34);
 				i = -1;
 				break ;
 			}
