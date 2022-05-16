@@ -83,20 +83,20 @@ AR = ar rsc
 all: $(NAME) $(BONUS)
 
 $(NAME): $(OBJ)
-	@$(AR) $(NAME) $(OBJ)
-	@echo "\033[92mLibft successfully compiled! 🦎 \033[92m"
+	$(AR) $(NAME) $(OBJ)
+#	@echo "\033[92mLibft successfully compiled! 🦎 \033[92m"
 
 clean:
 	@$(RM) $(OBJ) $(BONUS_OBJ)
 #	@echo "\033[91mLibft successfully cleaned!\033[91m"
 
 fclean: clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
 bonus: $(OBJ) $(BONUS_OBJ)
-	@$(AR) $(NAME) $(OBJ) $(BONUS_OBJ)
+	$(AR) $(NAME) $(OBJ) $(BONUS_OBJ)
 #	@echo "\033[92mLibft successfully compiled! 🐢\033[92m"
 
 .PHONY: all clean fclean re bonus

@@ -27,20 +27,20 @@ MLX =	libmlx.a  -framework OpenGL -framework AppKit -o
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(MAKE) -C mlx
-	$(MV) mlx/libmlx.a mlx/..
-#	@echo "\033[92mMLX successfully compiled! 🦎 \033[92m"
-	$(MAKE) bonus -C Libft
-	$(CC) $(FLAGS) $(OBJ) $(MLX) $(NAME) $(LIBFT)
-#	@echo "\033[92mLibft successfully compiled! 🐢 \033[92m"
+$(NAME): $(OBJ) $(SRCS)
+	@$(MAKE) -C mlx
+	@$(MV) mlx/libmlx.a mlx/..
+	@echo "\033[92mMLX successfully compiled! 🦎 \033[92m"
+	@$(MAKE) bonus -C Libft
+	@$(CC) $(FLAGS) $(OBJ) $(MLX) $(NAME) $(LIBFT)
+	@echo "\033[92mLibft successfully compiled! 🐢 \033[92m"
 
 
 clean:
-	@$(MAKE) fclean -C Libft
+	$(MAKE) fclean -C Libft
 # 	$(MAKE) clean -C mlx
 	@$(RM) $(OBJ) $(BONUS_OBJ) libmlx.a
-#	@echo "\033[91mMLX successfully cleaned!\033[91m"
+	@echo "\033[91mMLX successfully cleaned!\033[91m"
 
 fclean: clean
 	@$(RM) $(NAME)

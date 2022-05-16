@@ -50,11 +50,7 @@ void	check_shape(map	*map_thingy)
 	{
 		if (ft_strlen(map_thingy->map_arr[i]) != map_thingy->column)
 		{
-<<<<<<< HEAD
-			write(2, "Error\nInvalid map! The map has to be rectangular!", 50);
-=======
 			write(2,"Error\nInvalid map! The map has to be rectangular!", 50);
->>>>>>> c95166550e5ce3d465f904cdcb0e3b6126c49255
 			break ;
 		}
 		if (map_thingy->map_arr[i][0] != '1'
@@ -104,13 +100,8 @@ void	check_chars(map *mapi)
 		j = 0;
 		while (j < mapi->column)
 		{
-<<<<<<< HEAD
-			if (mapi->map_arr[i][j] != '1' && mapi->map_arr[i][j] != '0' \
-				&& mapi->map_arr[i][j] != 'P' && mapi->map_arr[i][j] != 'C' \
-=======
 			if (mapi->map_arr[i][j] != '1'&& mapi->map_arr[i][j] != '0'
 				&& mapi->map_arr[i][j] != 'P' && mapi->map_arr[i][j] != 'C'
->>>>>>> c95166550e5ce3d465f904cdcb0e3b6126c49255
 				&& mapi->map_arr[i][j] != 'E')
 			{
 				write(2, "Error\nWrong character in the map!", 34);
