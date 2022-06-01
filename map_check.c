@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ankasamanyan <ankasamanyan@student.42.f    +#+  +:+       +#+        */
+/*   By: akasaman <akasaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 10:31:12 by ankasamanya       #+#    #+#             */
-/*   Updated: 2022/04/25 20:21:50 by ankasamanya      ###   ########.fr       */
+/*   Updated: 2022/06/01 20:37:21 by akasaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ void	get_the_map(char *file, map *map_thingy)
 	map_row = get_next_line(fd);
 	rowlen = ft_strlen(map_row);
 	map_thingy->column = rowlen - 1;
-	while (get_next_line(fd))
+	while ( get_next_line(fd))
 		map_thingy->row = i++ + 1;
 	map_thingy->map_arr = ft_calloc(map_thingy->row, sizeof(char *));
+	close(fd);
 	fd = open(file, O_RDONLY);
 	map_row = get_next_line(fd);
 	if (map_row[rowlen - 1] == '\n')
@@ -50,13 +51,13 @@ void	check_shape(map	*map_thingy)
 	{
 		if (ft_strlen(map_thingy->map_arr[i]) != map_thingy->column)
 		{
-			write(2,"Error\nInvalid map! The map has to be rectangular!", 50);
+			write(2,"Error\nInvalid map! The map has to be rectangular!\n", 50);
 			break ;
 		}
 		if (map_thingy->map_arr[i][0] != '1'
 			|| map_thingy->map_arr[i][map_thingy->column - 1] != '1')
 		{
-			write(2, "Error\nMissing wall in the map!", 31);
+			write(2, "Error\nMissing wall in the map!\n", 31);
 			break ;
 		}
 		i++;
@@ -77,7 +78,8 @@ void	check_walls(map *map_thingy)
 			if ((map_thingy->map_arr[0][j] != '1')
 				|| (map_thingy->map_arr[map_thingy->row][j] != '1'))
 			{
-				write(2, "Error\nMissing wall in map!", 27);
+				write(2, "Error\nHalp!\n", 13);
+				printf("%d\n",j);
 				i = -1;
 				break ;
 			}
@@ -104,7 +106,7 @@ void	check_chars(map *mapi)
 				&& mapi->map_arr[i][j] != 'P' && mapi->map_arr[i][j] != 'C'
 				&& mapi->map_arr[i][j] != 'E')
 			{
-				write(2, "Error\nWrong character in the map!", 34);
+				write(2, "Error\nWrong character in the map!\n", 34);
 				i = -1;
 				break ;
 			}
